@@ -1,0 +1,6 @@
+#change
+test.domain.test { 
+tls internal
+header / X-Content-Type-Options "nosniff"
+reverse_proxy IP:PORT #change
+}

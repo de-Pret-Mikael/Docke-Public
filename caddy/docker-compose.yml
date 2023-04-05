@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  caddy:
+      image: caddy:2-alpine
+      working_dir: /etc/caddy
+      command: caddy run
+      volumes:
+        - caddy_data:/data
+        - caddy_config:/config
+        - ./caddyfile/Caddyfile:/etc/caddy/Caddyfile
+      environment:
+        #- DOMAIN_NAME_TEST=${DOMAIN_NAME_TEST} # ATTENTION .env 
+      ports:
+        - 443:443
+        - 8080:80
+      restart: always
+volumes:
+  caddy_data: { }
+  caddy_config: { }
